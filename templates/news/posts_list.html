@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Ваши статьи: </h1>
+
+    {% if post_list %}
+    <ul>
+        {% for post in post_list %}
+            <li>
+                <a href="{% url 'post_detail_url' post.pk %}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>У вас нет ни одной статьи.</p>
+    {% endif %}
+{% endblock content%}
